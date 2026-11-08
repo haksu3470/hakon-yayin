@@ -13,18 +13,20 @@ html, body {
     width: 100%;
     background-color: transparent;
 }
-.duyuru-tablosu {
+.duyuru-wrapper {
     width: 100%;
-    border: 0;
-    border-collapse: separate;
-    border-spacing: 0 5px;
-    table-layout: fixed;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    box-sizing: border-box;
+    padding-top: 2px;
 }
-.duyuru-hucre {
-    width: 100%;
+.duyuru-hucre-baslik {
+    width: 155px;
     box-sizing: border-box;
     border: 1px solid #C8C5C2;
     background-color: #F0F8FF;
+    margin-bottom: 5px;
 }
 .duyuru-baslik {
     padding: 6px 3px;
@@ -33,6 +35,14 @@ html, body {
     font-weight: bold;
     color: #000080;
     text-align: center;
+}
+.duyuru-hucre-icerik {
+    width: 155px;
+    height: 130px;
+    box-sizing: border-box;
+    border: 1px solid #C8C5C2;
+    background-color: #F0F8FF;
+    vertical-align: top;
 }
 .duyuru-icerik {
     padding: 5px;
@@ -60,45 +70,42 @@ html, body {
 </head>
 
 <body>
-<table class="duyuru-tablosu" cellpadding="0" cellspacing="0" width="100%">
-    <tr>
-        <td class="duyuru-hucre">
-            <div class="duyuru-baslik">DUYURULAR</div>
-        </td>
-    </tr>
-    <tr>
-        <td class="duyuru-hucre" style="height: 130px; vertical-align: top;">
-            <marquee behavior="scroll" direction="up" height="130" scrollamount="1"
-                     scrolldelay="60"
-                     onmouseover="this.stop()"
-                     onmouseout="this.start()">
-                <div class="duyuru-icerik">
-                    <span class="alt-baslik">PROMOSYON</span>
-                    <p>Firmamız 2007 yılında ürün yelpazesine yenilik olarak Asansörler için
-                    <b>DEPREM SENSÖRÜ</b> geliştirmiş, mevcut KTS ürünümüzle birlikte
-                    <b>DEPREM GÜVENLİK SİSTEMİ</b> olarak sektörümüz kullanımına sunmuştur.</p>
+<div class="duyuru-wrapper">
+    <div class="duyuru-hucre-baslik">
+        <div class="duyuru-baslik">DUYURULAR</div>
+    </div>
+    
+    <div class="duyuru-hucre-icerik">
+        <marquee behavior="scroll" direction="up" height="126" scrollamount="1"
+                 scrolldelay="60"
+                 onmouseover="this.stop()"
+                 onmouseout="this.start()">
+            <div class="duyuru-icerik">
+                <span class="alt-baslik">PROMOSYON</span>
+                <p>Firmamız 2007 yılında ürün yelpazesine yenilik olarak Asansörler için
+                <b>DEPREM SENSÖRÜ</b> geliştirmiş, mevcut KTS ürünümüzle birlikte
+                <b>DEPREM GÜVENLİK SİSTEMİ</b> olarak sektörümüz kullanımına sunmuştur.</p>
 
-                    <p>DEPREM GÜVENLİK SİSTEMİ'nin tanıtımı ve yaygınlaşması amaçlı bir
-                    <b>KAMPANYA</b> başlatılmış olup, mevcut <b>KTS</b> alan müşterilerimize
-                    çok cazip fiyatla BUNDLE olarak <b>DEPREM SENSÖRÜ</b> vermekteyiz.
-                    Satış koşulları için lütfen Pazarlama departmanımızla temasa geçiniz.</p>
+                <p>DEPREM GÜVENLİK SİSTEMİ'nin tanıtımı ve yaygınlaşması amaçlı bir
+                <b>KAMPANYA</b> başlatılmış olup, mevcut <b>KTS</b> alan müşterilerimize
+                çok cazip fiyatla BUNDLE olarak <b>DEPREM SENSÖRÜ</b> vermekteyiz.
+                Satış koşulları için lütfen Pazarlama departmanımızla temasa geçiniz.</p>
 
-                    <hr class="duyuru-ayrac">
+                <hr class="duyuru-ayrac">
 
-                    <span class="alt-baslik">BİR VECİZE</span>
-                    <p>Sektörümüzde iyilerle kötülerin, sağlamlarla çürüklerin farkının
-                    sadece fiyata bakılarak yapıldığı bu ekonomik kriz döneminde şu veciz
-                    cümleyi dile getirmeden geçemeyeceğiz:</p>
+                <span class="alt-baslik">BİR VECİZE</span>
+                <p>Sektörümüzde iyilerle kötülerin, sağlamlarla çürüklerin farkının
+                sadece fiyata bakılarak yapıldığı bu ekonomik kriz döneminde şu veciz
+                cümleyi dile getirmeden geçemeyeceğiz:</p>
 
-                    <p style="text-align: center;">
-                    <b>“DÜNYADA HİÇBİR KİMSE, HİÇBİR ŞEYİ DAHA KÖTÜ YAPMADAN DAHA UCUZA
-                    SATAMAZ. BİR MALIN SADECE FİYATINA BAKMAK BAZI HİLELERİ KABUL ETMEK
-                    DEMEKTİR.”</b>
-                    </p>
-                </div>
-            </marquee>
-        </td>
-    </tr>
-</table>
+                <p style="text-align: center;">
+                <b>“DÜNYADA HİÇBİR KİMSE, HİÇBİR ŞEYİ DAHA KÖTÜ YAPMADAN DAHA UCUZA
+                SATAMAZ. BİR MALIN SADECE FİYATINA BAKMAK BAZI HİLELERİ KABUL ETMEK
+                DEMEKTİR.”</b>
+                </p>
+            </div>
+        </marquee>
+    </div>
+</div>
 </body>
 </html>
