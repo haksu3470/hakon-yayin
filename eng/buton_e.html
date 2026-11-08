@@ -1,0 +1,66 @@
+<HTML>
+<HEAD>
+<TITLE>buton1</TITLE>
+<link rel="stylesheet" type="text/css" href="ana.CSS">
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=utf-8">
+<!-- ImageReady Preload Script (buton1.psd) -->
+<SCRIPT TYPE="text/javascript">
+<!--
+
+function newImage(arg) {
+	if (document.images) {
+		rslt = new Image();
+		rslt.src = arg;
+		return rslt;
+	}
+}
+
+function changeImages() {
+	if (document.images && (preloadFlag == true)) {
+		for (var i=0; i<changeImages.arguments.length; i+=2) {
+			document[changeImages.arguments[i]].src = changeImages.arguments[i+1];
+		}
+	}
+}
+
+var preloadFlag = false;
+function preloadImages() {
+	if (document.images) {
+		buton1_01_order_over = newImage("images/buton1_01-order_over.gif");
+		buton1_01_contact_over = newImage("images/buton1_01-contact_over.gif");
+		buton1_01_turkce_over = newImage("images/buton1_01-turkce_over.gif");
+		buton1_01_urunler_over = newImage("images/buton1_01-urunler_over.gif");
+		buton1_01_profil_over = newImage("images/buton1_01-profil_over.gif");
+		buton1_01_anasayfa_over = newImage("images/buton1_01-anasayfa_over.gif");
+		preloadFlag = true;
+	}
+}
+
+// -->
+</SCRIPT>
+<!-- End Preload Script -->
+<base target="govde">
+</HEAD>
+<BODY BGCOLOR=#FFFFFF LEFTMARGIN=0 TOPMARGIN=0 MARGINWIDTH=0 MARGINHEIGHT=0 ONLOAD="preloadImages();" background="images/banner1.gif">
+<!-- ImageReady Slices (buton1.psd) -->
+<MAP NAME="buton1_01_Map">
+<AREA SHAPE="rect" COORDS="531, 118, 604, 140" HREF="../anasayfa.htm" TARGET="_top"
+	ONMOUSEOVER="changeImages('buton1_01', 'images/buton1_01-turkce_over.gif'); return true;"
+	ONMOUSEOUT="changeImages('buton1_01', 'images/buton1_01.gif'); return true;">
+<AREA SHAPE="rect" COORDS="463, 118, 526, 140" HREF="contact.htm">
+<AREA SHAPE="rect" COORDS="411, 118, 457, 140" HREF="order.htm">
+<AREA SHAPE="rect" COORDS="333, 119, 405, 140" HREF="products.htm">
+<AREA SHAPE="rect" COORDS="200, 119, 328, 140" HREF="profile.htm" TARGET="govde"
+	ONMOUSEOVER="changeImages('buton1_01', 'images/buton1_01-profil_over.gif'); return true;"
+	ONMOUSEOUT="changeImages('buton1_01', 'images/buton1_01.gif'); return true;">
+<AREA SHAPE="rect" COORDS="152, 119, 196, 140" HREF="govde_e.htm" TARGET="govde"
+	ONMOUSEOVER="changeImages('buton1_01', 'images/buton1_01-anasayfa_over.gif'); return true;"
+	ONMOUSEOUT="changeImages('buton1_01', 'images/buton1_01.gif'); return true;">
+<area href="order.htm" shape="default">
+<area href="order.htm" coords="0, 0, 10000, 10000" shape="rect">
+</MAP>
+	<IMG NAME="buton1_01" SRC="images/buton1_01.gif" BORDER=0 ALT="" ISMAP USEMAP="#buton1_01_Map" width="800" height="140">
+	<hr color="#330099" size="5">
+<!-- End ImageReady Slices -->
+</BODY>
+</HTML>

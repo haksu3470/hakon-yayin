@@ -1,0 +1,76 @@
+<HTML>
+<HEAD>
+<TITLE>Banner</TITLE>
+<link rel="stylesheet" type="text/css" href="ana.CSS">
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=utf-8">
+<!-- ImageReady Preload Script (buton1.psd) -->
+<SCRIPT TYPE="text/javascript">
+<!--
+
+function newImage(arg) {
+	if (document.images) {
+		rslt = new Image();
+		rslt.src = arg;
+		return rslt;
+	}
+}
+
+function changeImages() {
+	if (document.images && (preloadFlag == true)) {
+		for (var i=0; i<changeImages.arguments.length; i+=2) {
+			document[changeImages.arguments[i]].src = changeImages.arguments[i+1];
+		}
+	}
+}
+
+var preloadFlag = false;
+function preloadImages() {
+	if (document.images) {
+		buton_01_english_over = newImage("images/buton_01-english_over.gif");
+		buton_01_iletisim_over = newImage("images/buton_01-iletisim_over.gif");
+		buton_01_siparis_over = newImage("images/buton_01-siparis_over.gif");
+		buton_01_referanslar_over = newImage("images/buton_01-referanslar_over.gif");
+		buton_01_urunler_over = newImage("images/buton_01-urunler_over.gif");
+		buton_01_profil_over = newImage("images/buton_01-profil_over.gif");
+		buton_01_anasayfa_over = newImage("images/buton_01-anasayfa_over.gif");
+		preloadFlag = true;
+	}
+}
+
+// -->
+</SCRIPT>
+<!-- End Preload Script -->
+
+<base target="banner">
+
+</HEAD>
+<BODY BGCOLOR=#FFFFFF LEFTMARGIN=0 TOPMARGIN=0 MARGINWIDTH=0 MARGINHEIGHT=0 ONLOAD="preloadImages();" background="images/banner1.gif">
+<!-- ImageReady Slices (buton1.psd) -->
+<MAP NAME="buton_01_Map">
+<AREA SHAPE="rect" COORDS="624, 119, 699, 140" HREF="Eng/main.htm" TARGET="_parent"
+	ONMOUSEOVER="changeImages('buton_01', 'images/buton_01-english_over.gif'); return true;"
+	ONMOUSEOUT="changeImages('buton_01', 'images/buton_01.gif'); return true;">
+<AREA SHAPE="rect" ALT="" COORDS="558, 119, 621, 140" HREF="iletisim.htm" TARGET="govde"
+	ONMOUSEOVER="changeImages('buton_01', 'images/buton_01-iletisim_over.gif'); return true;"
+	ONMOUSEOUT="changeImages('buton_01', 'images/buton_01.gif'); return true;">
+<AREA SHAPE="rect" ALT="" COORDS="497, 118, 552, 140" HREF="siparis.htm" TARGET="govde"
+	ONMOUSEOVER="changeImages('buton_01', 'images/buton_01-siparis_over.gif'); return true;"
+	ONMOUSEOUT="changeImages('buton_01', 'images/buton_01.gif'); return true;">
+<AREA SHAPE="rect" ALT="" COORDS="401, 119, 493, 140" HREF="referanslar.htm" TARGET="govde"
+	ONMOUSEOVER="changeImages('buton_01', 'images/buton_01-referanslar_over.gif'); return true;"
+	ONMOUSEOUT="changeImages('buton_01', 'images/buton_01.gif'); return true;">
+<AREA SHAPE="rect" ALT="" COORDS="333, 119, 393, 140" HREF="urunler.htm" TARGET="govde"
+	ONMOUSEOVER="changeImages('buton_01', 'images/buton_01-urunler_over.gif'); return true;"
+	ONMOUSEOUT="changeImages('buton_01', 'images/buton_01.gif'); return true;">
+<AREA SHAPE="rect" ALT="" COORDS="237, 119, 328, 140" HREF="profil.htm" TARGET="govde"
+	ONMOUSEOVER="changeImages('buton_01', 'images/buton_01-profil_over.gif'); return true;"
+	ONMOUSEOUT="changeImages('buton_01', 'images/buton_01.gif'); return true;">
+<AREA SHAPE="rect" COORDS="152, 119, 231, 140" HREF="govde.htm" TARGET="govde"
+	ONMOUSEOVER="changeImages('buton_01', 'images/buton_01-anasayfa_over.gif'); return true;"
+	ONMOUSEOUT="changeImages('buton_01', 'images/buton_01.gif'); return true;">
+</MAP>
+	<IMG NAME="buton_01" SRC="images/buton_01.gif" BORDER=0 ALT="" ISMAP USEMAP="#buton_01_Map" width="800" height="140">
+<hr color="#330099" size="5">
+<!-- End ImageReady Slices -->
+</BODY>
+</HTML>

@@ -1,0 +1,92 @@
+
+a:link
+{
+	color: rgb(0, 0, 128); 
+	text-decoration: none;
+
+}
+a:visited
+{
+	color: rgb(128, 128, 128);
+	text-decoration: none;
+} 
+a:active 
+{
+	color: rgb(204, 153, 0);
+	text-decoration: none;
+}
+a:hover 
+{
+	color: rgb(255, 0, 0);
+	text-decoration: none;
+	font-weight: bold;
+	font-color: #CC0000;
+}
+body
+{
+	font-family: Century Gothic, Arial, Helvetica;
+	background-color: rgb(255, 255, 255);
+	color: rgb(0, 51, 102);
+	background-repeat : no-repeat;
+	text-decoration: none;
+}
+table
+{
+	table-border-color-light: rgb(204, 153, 255);
+	table-border-color-dark: rgb(204, 0, 204); 
+}
+h1, h2, h3, h4, h5, h6
+{
+	font-color: #000080;
+	font-family: Arial,Verdana,Tohoma,Helvatica;
+}
+h1
+{
+	font-size: 18pt;
+h2
+{
+	font-size: 16pt; 
+}
+h3
+{
+	font-size: 14pt;
+}
+h4
+{
+	font-size: 12pt;
+}
+h5
+{
+	font-size: 10pt;
+}
+h6
+{
+	font-size: 8pt;}
+li
+{
+	list-sytle-type: disk;
+	list-sytle-position: inside;
+}
+
+.orta
+{
+	text-align: center;	
+}
+
+.solda
+{
+	text-align: left;	
+}
+.sagda
+{
+	text-align: right;	
+}
+
+p
+{
+	font-color:#000080;
+	font-family: Verdana,Arial,Tohoma;
+	font-type: normal;
+	font-size: 9pt
+	text-align: left;	
+}
