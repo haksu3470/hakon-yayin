@@ -53,9 +53,7 @@ html, body {
     text-align: center;
     font-family: Verdana, Arial, sans-serif;
     font-size: 11px;
-    font-weight: bold;
     line-height: 1.3;
-    color: #000080;
     margin-bottom: 5px;
 }
 .link-kutu a {
@@ -66,14 +64,30 @@ html, body {
 .link-kutu a:hover {
     text-decoration: underline;
 }
+/* Ana Buton Başlık Stili */
+.ana-baslik-link {
+    font-size: 12px !important;
+    font-weight: 800 !important;
+    color: #000066 !important;
+    letter-spacing: 0.5px;
+    display: block;
+}
 .kutu-baslik {
     display: block;
-    margin: 0 0 5px 0;
+    margin: 0 0 6px 0;
     text-decoration: underline;
+    font-size: 12px;
+    font-weight: 800;
+    color: #000066;
+    letter-spacing: 0.5px;
 }
 .belge-linkleri {
     text-align: center;
     line-height: 1.55;
+    font-size: 10.5px;
+}
+.sub-link {
+    font-size: 10.5px;
 }
 </style>
 </head>
@@ -81,7 +95,7 @@ html, body {
 <body>
 <div class="linkler-wrapper">
     <div class="link-kutu">
-        <a title="Sıkça Sorulan Sorular" target="_blank" href="sss_ana.htm">
+        <a title="Sıkça Sorulan Sorular" target="_blank" href="sss_ana.htm" class="ana-baslik-link">
             SIKÇA SORULAN SORULAR
         </a>
     </div>
@@ -98,12 +112,12 @@ html, body {
 
     <div class="link-kutu">
         <span class="kutu-baslik">ONLINE BROŞÜR</span>
-        <a href="javascript:PencereAc2()">BROŞÜR ÖN</a><br>
-        <a href="javascript:PencereAc3()">BROŞÜR ARKA</a>
+        <a href="javascript:PencereAc2()" class="sub-link">BROŞÜR ÖN</a><br>
+        <a href="javascript:PencereAc3()" class="sub-link">BROŞÜR ARKA</a>
     </div>
 
     <div class="link-kutu">
-        <a title="Uygulama Projeleri - Teknik detay" target="_blank" href="kk/ktskk.htm">
+        <a title="Uygulama Projeleri - Teknik detay" target="_blank" href="kk/ktskk.htm" class="ana-baslik-link">
             KULLANIM KILAVUZU
         </a>
     </div>
