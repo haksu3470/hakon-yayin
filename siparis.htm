@@ -1,21 +1,111 @@
-
-<HTML>
-<HEAD>
-<meta HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=utf-8">
-<meta http-equiv="Content-Language" content="tr">
-<TITLE>KTS Sipariş-Teklif İsteme Formu</TITLE>
-<link rel="stylesheet" href="ana.css">
-</HEAD>
-<BODY>
-<H1 align="center">KTS </H1>
-<H1 align="center">Sipariş veya teklif isteme formu</H1>
-<hr>
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>KTS Sipariş-Teklif İsteme Formu</title>
+<link rel="stylesheet" type="text/css" href="ana.css">
+<style type="text/css">
+html, body {
+    margin: 0;
+    padding: 10px;
+    background-color: #ffffff;
+    font-family: Arial, Helvetica, sans-serif;
+    color: #333333;
+}
+.form-container {
+    width: 100%;
+    max-width: 580px;
+    margin: 0 auto;
+}
+h1.form-baslik {
+    font-family: Arial, sans-serif;
+    color: #000080;
+    font-size: 18px;
+    text-align: center;
+    margin: 5px 0 2px 0;
+}
+h2.form-altbaslik {
+    font-family: Arial, sans-serif;
+    color: #000080;
+    font-size: 15px;
+    text-align: center;
+    margin: 0 0 10px 0;
+}
+.uyari-metni {
+    color: #cc0000;
+    font-size: 11px;
+    font-weight: bold;
+    text-align: center;
+    margin-bottom: 15px;
+}
+.form-tablo {
+    width: 100%;
+    border-collapse: collapse;
+}
+.form-tablo td {
+    padding: 4px 6px;
+    font-size: 11px;
+    font-style: italic;
+    color: #000080;
+}
+.form-tablo td.label {
+    text-align: right;
+    width: 35%;
+    font-weight: bold;
+}
+.form-tablo input[type="text"], .form-tablo select {
+    width: 95%;
+    padding: 3px;
+    border: 1px solid #7F9DB9;
+    font-family: Arial, sans-serif;
+    font-size: 11px;
+}
+.secenek-alani {
+    text-align: center;
+    margin-bottom: 10px;
+    font-size: 12px;
+    font-weight: bold;
+    color: #000080;
+}
+.urun-tablo {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 15px;
+    border: 1px solid #C8C5C2;
+}
+.urun-tablo th {
+    background-color: #F0F8FF;
+    border: 1px solid #C8C5C2;
+    padding: 5px;
+    font-size: 11px;
+    color: #000080;
+}
+.urun-tablo td {
+    border: 1px solid #C8C5C2;
+    padding: 4px;
+    text-align: center;
+}
+.buton-alani {
+    text-align: center;
+    margin-top: 15px;
+}
+.form-btn {
+    padding: 5px 15px;
+    font-size: 11px;
+    font-weight: bold;
+    color: #000080;
+    background-color: #F0F8FF;
+    border: 1px solid #7F9DB9;
+    cursor: pointer;
+}
+</style>
 <script type="text/javascript">
-function FrontPage_Form1_Validator(theForm) {
+function FormKontrol(theForm) {
     var radioSelected = false;
     for (var i = 0; i < theForm.sip_tek.length; i++) {
         if (theForm.sip_tek[i].checked) {
             radioSelected = true;
+            break;
         }
     }
     if (!radioSelected) {
@@ -25,970 +115,126 @@ function FrontPage_Form1_Validator(theForm) {
     return true;
 }
 </script>
+</head>
 
-  if (theForm.Kisi_bilgileri_TamAdi.value == "")
-  {
-    alert("Please enter a value for the \"Lütfe Adınızı ve soyadınızı giriniz\" field.");
-    theForm.Kisi_bilgileri_TamAdi.focus();
-    return (false);
-  }
+<body>
+<div class="form-container">
+    <h1 class="form-baslik">KTS</h1>
+    <h2 class="form-altbaslik">Sipariş veya teklif isteme formu</h2>
+    <hr color="#C8C5C2" size="1">
 
-  if (theForm.Kisi_bilgileri_TamAdi.value.length < 5)
-  {
-    alert("Please enter at least 5 characters in the \"Lütfe Adınızı ve soyadınızı giriniz\" field.");
-    theForm.Kisi_bilgileri_TamAdi.focus();
-    return (false);
-  }
+    <form method="POST" action="mailto:hakon@hakon.net.tr" enctype="text/plain" onsubmit="return FormKontrol(this);">
+        
+        <div class="secenek-alani">
+            Sipariş <input type="radio" value="Siparis" name="sip_tek"> &nbsp;&nbsp;&nbsp; 
+            Teklif <input type="radio" value="Teklif" name="sip_tek">
+        </div>
 
-  if (theForm.Kisi_bilgileri_TamAdi.value.length > 30)
-  {
-    alert("Please enter at most 30 characters in the \"Lütfe Adınızı ve soyadınızı giriniz\" field.");
-    theForm.Kisi_bilgileri_TamAdi.focus();
-    return (false);
-  }
+        <div class="uyari-metni">
+            "Lütfen formu doldururken türkçe karakter (ı,ü,Ö,Ş,ş,Ğ,ğ) kullanmayınız!"
+        </div>
 
-  var checkOK = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyzƒŠŒšœŸÀÁÂÃÄÅÆÇÈÉÊËÌÍÎÏĞÑÒÓÔÕÖØÙÚÛÜİŞßàáâãäåæçèéêëìíîïğñòóôõöøùúûüışÿ.,;:-_ \t\r\n\f";
-  var checkStr = theForm.Kisi_bilgileri_TamAdi.value;
-  var allValid = true;
-  var validGroups = true;
-  for (i = 0;  i < checkStr.length;  i++)
-  {
-    ch = checkStr.charAt(i);
-    for (j = 0;  j < checkOK.length;  j++)
-      if (ch == checkOK.charAt(j))
-        break;
-    if (j == checkOK.length)
-    {
-      allValid = false;
-      break;
-    }
-  }
-  if (!allValid)
-  {
-    alert("Please enter only letter, whitespace and \".,;:-_\" characters in the \"Lütfe Adınızı ve soyadınızı giriniz\" field.");
-    theForm.Kisi_bilgileri_TamAdi.focus();
-    return (false);
-  }
+        <table class="form-tablo">
+            <tr>
+                <td class="label">Adı:</td>
+                <td><input type="text" name="Kisi_bilgileri_TamAdi" required></td>
+            </tr>
+            <tr>
+                <td class="label">Unvanı:</td>
+                <td><input type="text" name="Kisi_bilgileri_Unvan"></td>
+            </tr>
+            <tr>
+                <td class="label">Kuruluş:</td>
+                <td><input type="text" name="Kisi_bilgileri_Kurulus"></td>
+            </tr>
+            <tr>
+                <td class="label">Açık Adres:</td>
+                <td><input type="text" name="Kisi_bilgileri_AcikAdres"></td>
+            </tr>
+            <tr>
+                <td class="label">Adres (devamı):</td>
+                <td><input type="text" name="Kisi_bilgileri_AdresDevami"></td>
+            </tr>
+            <tr>
+                <td class="label">Şehir:</td>
+                <td><input type="text" name="Kisi_bilgileri_Sehir"></td>
+            </tr>
+            <tr>
+                <td class="label">Vergi Dairesi:</td>
+                <td><input type="text" name="Kisi_bilgileri_VergiDairesi"></td>
+            </tr>
+            <tr>
+                <td class="label">Vergi No:</td>
+                <td><input type="text" name="Kisi_bilgileri_VergiNo"></td>
+            </tr>
+            <tr>
+                <td class="label">İş Telefonu:</td>
+                <td><input type="text" name="Kisi_bilgileri_IsTelefonu"></td>
+            </tr>
+            <tr>
+                <td class="label">Faks:</td>
+                <td><input type="text" name="Kisi_bilgileri_Faks"></td>
+            </tr>
+            <tr>
+                <td class="label">E-posta:</td>
+                <td><input type="text" name="Kisi_bilgileri_Eposta"></td>
+            </tr>
+            <tr>
+                <td class="label">Referansı:</td>
+                <td><input type="text" name="Kisi_bilgileri_Referansi"></td>
+            </tr>
+            <tr>
+                <td class="label">Ödeme Şekli:</td>
+                <td style="font-style: normal;">
+                    <input type="radio" value="Pesin" name="Odeme_sekli" checked> Peşin &nbsp;&nbsp;
+                    <input type="radio" value="Vadeli" name="Odeme_sekli"> Vadeli
+                </td>
+            </tr>
+            <tr>
+                <td class="label">Kargo Şirketi:</td>
+                <td>
+                    <select name="Anlasmali_Oldugunuz_Kargo_Sirketi">
+                        <option value="Seciniz">Lütfen Kargo firmanızı seçiniz</option>
+                        <option value="Aras">Aras Kargo</option>
+                        <option value="Yurtici">Yurtiçi Kargo</option>
+                        <option value="MNG">MNG Kargo</option>
+                        <option value="Surat">Sürat Kargo</option>
+                        <option value="Diger">Diğer</option>
+                    </select>
+                </td>
+            </tr>
+        </table>
 
-  var checkOK = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyzƒŠŒšœŸÀÁÂÃÄÅÆÇÈÉÊËÌÍÎÏĞÑÒÓÔÕÖØÙÚÛÜİŞßàáâãäåæçèéêëìíîïğñòóôõöøùúûüışÿ.,;:-_ \t\r\n\f";
-  var checkStr = theForm.Kisi_bilgileri_Unvan.value;
-  var allValid = true;
-  var validGroups = true;
-  for (i = 0;  i < checkStr.length;  i++)
-  {
-    ch = checkStr.charAt(i);
-    for (j = 0;  j < checkOK.length;  j++)
-      if (ch == checkOK.charAt(j))
-        break;
-    if (j == checkOK.length)
-    {
-      allValid = false;
-      break;
-    }
-  }
-  if (!allValid)
-  {
-    alert("Please enter only letter, whitespace and \".,;:-_\" characters in the \"Kisi_bilgileri_Unvan\" field.");
-    theForm.Kisi_bilgileri_Unvan.focus();
-    return (false);
-  }
+        <br>
+        <div style="font-size: 11px; font-weight: bold; color: #000080; text-align: center;">
+            Lütfen, ürün bilgisini girin:
+        </div>
 
-  if (theForm.Kisi_bilgileri_Sehir.value == "")
-  {
-    alert("Please enter a value for the \"Lütfen Bulunduğunuz il adını giriniz.\" field.");
-    theForm.Kisi_bilgileri_Sehir.focus();
-    return (false);
-  }
+        <table class="urun-tablo">
+            <tr>
+                <th>Ürün adı</th>
+                <th>MİKTAR</th>
+            </tr>
+            <tr>
+                <td>
+                    <select name="Urun_adi">
+                        <option value="KTS">Ürün tipini belirtiniz</option>
+                        <option value="KTS Monofaze">KTS Monofaze</option>
+                        <option value="KTS Trifaze">KTS Trifaze</option>
+                        <option value="KTS VVF">KTS VVF</option>
+                    </select>
+                </td>
+                <td>
+                    <input type="text" name="Miktar" style="width: 60px; text-align: center;">
+                </td>
+            </tr>
+        </table>
 
-  if (theForm.Kisi_bilgileri_Sehir.value.length < 3)
-  {
-    alert("Please enter at least 3 characters in the \"Lütfen Bulunduğunuz il adını giriniz.\" field.");
-    theForm.Kisi_bilgileri_Sehir.focus();
-    return (false);
-  }
-
-  if (theForm.Kisi_bilgileri_Sehir.value.length > 25)
-  {
-    alert("Please enter at most 25 characters in the \"Lütfen Bulunduğunuz il adını giriniz.\" field.");
-    theForm.Kisi_bilgileri_Sehir.focus();
-    return (false);
-  }
-
-  var checkOK = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyzƒŠŒšœŸÀÁÂÃÄÅÆÇÈÉÊËÌÍÎÏĞÑÒÓÔÕÖØÙÚÛÜİŞßàáâãäåæçèéêëìíîïğñòóôõöøùúûüışÿ.,;:-_ \t\r\n\f";
-  var checkStr = theForm.Kisi_bilgileri_Sehir.value;
-  var allValid = true;
-  var validGroups = true;
-  for (i = 0;  i < checkStr.length;  i++)
-  {
-    ch = checkStr.charAt(i);
-    for (j = 0;  j < checkOK.length;  j++)
-      if (ch == checkOK.charAt(j))
-        break;
-    if (j == checkOK.length)
-    {
-      allValid = false;
-      break;
-    }
-  }
-  if (!allValid)
-  {
-    alert("Please enter only letter, whitespace and \".,;:-_\" characters in the \"Lütfen Bulunduğunuz il adını giriniz.\" field.");
-    theForm.Kisi_bilgileri_Sehir.focus();
-    return (false);
-  }
-
-  var checkOK = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyzƒŠŒšœŸÀÁÂÃÄÅÆÇÈÉÊËÌÍÎÏĞÑÒÓÔÕÖØÙÚÛÜİŞßàáâãäåæçèéêëìíîïğñòóôõöøùúûüışÿ.,;:-_ \t\r\n\f";
-  var checkStr = theForm.Kisi_bilgileri_Vergidairesi.value;
-  var allValid = true;
-  var validGroups = true;
-  for (i = 0;  i < checkStr.length;  i++)
-  {
-    ch = checkStr.charAt(i);
-    for (j = 0;  j < checkOK.length;  j++)
-      if (ch == checkOK.charAt(j))
-        break;
-    if (j == checkOK.length)
-    {
-      allValid = false;
-      break;
-    }
-  }
-  if (!allValid)
-  {
-    alert("Please enter only letter, whitespace and \".,;:-_\" characters in the \"Lütfen vergi dairesini giriniz.\" field.");
-    theForm.Kisi_bilgileri_Vergidairesi.focus();
-    return (false);
-  }
-
-  if (theForm.Kisi_bilgileri_Vergino.value.length > 12)
-  {
-    alert("Please enter at most 12 characters in the \"Lütfen vergi numaranızı giriniz\" field.");
-    theForm.Kisi_bilgileri_Vergino.focus();
-    return (false);
-  }
-
-  var checkOK = "0123456789-";
-  var checkStr = theForm.Kisi_bilgileri_Vergino.value;
-  var allValid = true;
-  var validGroups = true;
-  var decPoints = 0;
-  var allNum = "";
-  for (i = 0;  i < checkStr.length;  i++)
-  {
-    ch = checkStr.charAt(i);
-    for (j = 0;  j < checkOK.length;  j++)
-      if (ch == checkOK.charAt(j))
-        break;
-    if (j == checkOK.length)
-    {
-      allValid = false;
-      break;
-    }
-    allNum += ch;
-  }
-  if (!allValid)
-  {
-    alert("Please enter only digit characters in the \"Lütfen vergi numaranızı giriniz\" field.");
-    theForm.Kisi_bilgileri_Vergino.focus();
-    return (false);
-  }
-
-  if (theForm.Kisi_bilgileri_IsTelefonu.value == "")
-  {
-    alert("Please enter a value for the \"Lütfen telefon numaranızı giriniz \" field.");
-    theForm.Kisi_bilgileri_IsTelefonu.focus();
-    return (false);
-  }
-
-  if (theForm.Kisi_bilgileri_IsTelefonu.value.length < 7)
-  {
-    alert("Please enter at least 7 characters in the \"Lütfen telefon numaranızı giriniz \" field.");
-    theForm.Kisi_bilgileri_IsTelefonu.focus();
-    return (false);
-  }
-
-  if (theForm.Kisi_bilgileri_IsTelefonu.value.length > 25)
-  {
-    alert("Please enter at most 25 characters in the \"Lütfen telefon numaranızı giriniz \" field.");
-    theForm.Kisi_bilgileri_IsTelefonu.focus();
-    return (false);
-  }
-
-  var checkOK = "0123456789-";
-  var checkStr = theForm.Kisi_bilgileri_IsTelefonu.value;
-  var allValid = true;
-  var validGroups = true;
-  var decPoints = 0;
-  var allNum = "";
-  for (i = 0;  i < checkStr.length;  i++)
-  {
-    ch = checkStr.charAt(i);
-    for (j = 0;  j < checkOK.length;  j++)
-      if (ch == checkOK.charAt(j))
-        break;
-    if (j == checkOK.length)
-    {
-      allValid = false;
-      break;
-    }
-    allNum += ch;
-  }
-  if (!allValid)
-  {
-    alert("Please enter only digit characters in the \"Lütfen telefon numaranızı giriniz \" field.");
-    theForm.Kisi_bilgileri_IsTelefonu.focus();
-    return (false);
-  }
-
-  if (theForm.Kisi_bilgileri_Faks.value.length > 25)
-  {
-    alert("Please enter at most 25 characters in the \"Lütfen fax numaranızı giriniz\" field.");
-    theForm.Kisi_bilgileri_Faks.focus();
-    return (false);
-  }
-
-  var checkOK = "0123456789-";
-  var checkStr = theForm.Kisi_bilgileri_Faks.value;
-  var allValid = true;
-  var validGroups = true;
-  var decPoints = 0;
-  var allNum = "";
-  for (i = 0;  i < checkStr.length;  i++)
-  {
-    ch = checkStr.charAt(i);
-    for (j = 0;  j < checkOK.length;  j++)
-      if (ch == checkOK.charAt(j))
-        break;
-    if (j == checkOK.length)
-    {
-      allValid = false;
-      break;
-    }
-    allNum += ch;
-  }
-  if (!allValid)
-  {
-    alert("Please enter only digit characters in the \"Lütfen fax numaranızı giriniz\" field.");
-    theForm.Kisi_bilgileri_Faks.focus();
-    return (false);
-  }
-
-  if (theForm.Kisi_bilgileri_Eposta.value == "")
-  {
-    alert("Please enter a value for the \"Lütfen Email adresinizi doğru giriniz\" field.");
-    theForm.Kisi_bilgileri_Eposta.focus();
-    return (false);
-  }
-
-  if (theForm.Kisi_bilgileri_Eposta.value.length < 3)
-  {
-    alert("Please enter at least 3 characters in the \"Lütfen Email adresinizi doğru giriniz\" field.");
-    theForm.Kisi_bilgileri_Eposta.focus();
-    return (false);
-  }
-
-  if (theForm.Kisi_bilgileri_Eposta.value.length > 40)
-  {
-    alert("Please enter at most 40 characters in the \"Lütfen Email adresinizi doğru giriniz\" field.");
-    theForm.Kisi_bilgileri_Eposta.focus();
-    return (false);
-  }
-
-  var checkOK = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyzƒŠŒšœŸÀÁÂÃÄÅÆÇÈÉÊËÌÍÎÏĞÑÒÓÔÕÖØÙÚÛÜİŞßàáâãäåæçèéêëìíîïğñòóôõöøùúûüışÿ0123456789-0123456789_@. \t\r\n\f";
-  var checkStr = theForm.Kisi_bilgileri_Eposta.value;
-  var allValid = true;
-  var validGroups = true;
-  for (i = 0;  i < checkStr.length;  i++)
-  {
-    ch = checkStr.charAt(i);
-    for (j = 0;  j < checkOK.length;  j++)
-      if (ch == checkOK.charAt(j))
-        break;
-    if (j == checkOK.length)
-    {
-      allValid = false;
-      break;
-    }
-  }
-  if (!allValid)
-  {
-    alert("Please enter only letter, digit, whitespace and \"0123456789_@.\" characters in the \"Lütfen Email adresinizi doğru giriniz\" field.");
-    theForm.Kisi_bilgileri_Eposta.focus();
-    return (false);
-  }
-
-  var radioSelected = false;
-  for (i = 0;  i < theForm.odeme_sekli.length;  i++)
-  {
-    if (theForm.odeme_sekli[i].checked)
-        radioSelected = true;
-  }
-  if (!radioSelected)
-  {
-    alert("Please select one of the \"Lütfen ödeme şekli seçiniz\" options.");
-    return (false);
-  }
-
-  if (theForm.Kargo.selectedIndex == 0)
-  {
-    alert("The first \"Lütfen Kargo şirketini seçiniz\" option is not a valid selection.  Please choose one of the other options.");
-    theForm.Kargo.focus();
-    return (false);
-  }
-
-  if (theForm.adet.value == "")
-  {
-    alert("Please enter a value for the \"Lütfen miktarı seçiniz\" field.");
-    theForm.adet.focus();
-    return (false);
-  }
-
-  if (theForm.adet.value.length < 1)
-  {
-    alert("Please enter at least 1 characters in the \"Lütfen miktarı seçiniz\" field.");
-    theForm.adet.focus();
-    return (false);
-  }
-
-  var checkOK = "0123456789-,";
-  var checkStr = theForm.adet.value;
-  var allValid = true;
-  var validGroups = true;
-  var decPoints = 0;
-  var allNum = "";
-  for (i = 0;  i < checkStr.length;  i++)
-  {
-    ch = checkStr.charAt(i);
-    for (j = 0;  j < checkOK.length;  j++)
-      if (ch == checkOK.charAt(j))
-        break;
-    if (j == checkOK.length)
-    {
-      allValid = false;
-      break;
-    }
-    if (ch != ",")
-      allNum += ch;
-  }
-  if (!allValid)
-  {
-    alert("Please enter only digit characters in the \"Lütfen miktarı seçiniz\" field.");
-    theForm.adet.focus();
-    return (false);
-  }
-
-  var chkVal = allNum;
-  var prsVal = parseInt(allNum);
-  if (chkVal != "" && !(prsVal >= "0"))
-  {
-    alert("Please enter a value greater than or equal to \"0\" in the \"Lütfen miktarı seçiniz\" field.");
-    theForm.adet.focus();
-    return (false);
-  }
-
-  if (theForm.motor_gucu.selectedIndex < 0)
-  {
-    alert("Please select one of the \"Lütfen motor gücünü seçiniz\" options.");
-    theForm.motor_gucu.focus();
-    return (false);
-  }
-
-  if (theForm.motor_gucu.selectedIndex == 0)
-  {
-    alert("The first \"Lütfen motor gücünü seçiniz\" option is not a valid selection.  Please choose one of the other options.");
-    theForm.motor_gucu.focus();
-    return (false);
-  }
-
-  var radioSelected = false;
-  for (i = 0;  i < theForm.motor_guctype.length;  i++)
-  {
-    if (theForm.motor_guctype[i].checked)
-        radioSelected = true;
-  }
-  if (!radioSelected)
-  {
-    alert("Please select one of the \"Lütfen motor gücü tipini seçiniz\" options.");
-    return (false);
-  }
-
-  if (theForm.fren_gerilimi.selectedIndex < 0)
-  {
-    alert("Please select one of the \"Lütfen fren gerilimini seçiniz\" options.");
-    theForm.fren_gerilimi.focus();
-    return (false);
-  }
-
-  if (theForm.fren_gerilimi.selectedIndex == 0)
-  {
-    alert("The first \"Lütfen fren gerilimini seçiniz\" option is not a valid selection.  Please choose one of the other options.");
-    theForm.fren_gerilimi.focus();
-    return (false);
-  }
-
-  if (theForm.emniyet_gerilimi.selectedIndex < 0)
-  {
-    alert("Please select one of the \"Lütfen emniyet gerilimi seçimini yapınız\" options.");
-    theForm.emniyet_gerilimi.focus();
-    return (false);
-  }
-
-  if (theForm.emniyet_gerilimi.selectedIndex == 0)
-  {
-    alert("The first \"Lütfen emniyet gerilimi seçimini yapınız\" option is not a valid selection.  Please choose one of the other options.");
-    theForm.emniyet_gerilimi.focus();
-    return (false);
-  }
-
-  var radioSelected = false;
-  for (i = 0;  i < theForm.emg_type.length;  i++)
-  {
-    if (theForm.emg_type[i].checked)
-        radioSelected = true;
-  }
-  if (!radioSelected)
-  {
-    alert("Please select one of the \"gerilim tipi seçimi yapınız\" options.");
-    return (false);
-  }
-
-  if (theForm.sinyal_gerilimi.selectedIndex < 0)
-  {
-    alert("Please select one of the \"Lütfen sinyalizasyon gerilimi seçimini yapınız\" options.");
-    theForm.sinyal_gerilimi.focus();
-    return (false);
-  }
-
-  if (theForm.sinyal_gerilimi.selectedIndex == 0)
-  {
-    alert("The first \"Lütfen sinyalizasyon gerilimi seçimini yapınız\" option is not a valid selection.  Please choose one of the other options.");
-    theForm.sinyal_gerilimi.focus();
-    return (false);
-  }
-
-  if (theForm.tahrik_sekli.selectedIndex < 0)
-  {
-    alert("Please select one of the \"Lütfen tahrik şekli seçimini yapınız\" options.");
-    theForm.tahrik_sekli.focus();
-    return (false);
-  }
-
-  if (theForm.tahrik_sekli.selectedIndex == 0)
-  {
-    alert("The first \"Lütfen tahrik şekli seçimini yapınız\" option is not a valid selection.  Please choose one of the other options.");
-    theForm.tahrik_sekli.focus();
-    return (false);
-  }
-
-  if (theForm.hiz.value == "")
-  {
-    alert("Please enter a value for the \"Lütfen hızı seçiniz\" field.");
-    theForm.hiz.focus();
-    return (false);
-  }
-
-  if (theForm.hiz.value.length < 1)
-  {
-    alert("Please enter at least 1 characters in the \"Lütfen hızı seçiniz\" field.");
-    theForm.hiz.focus();
-    return (false);
-  }
-
-  var checkOK = "0123456789-.,";
-  var checkStr = theForm.hiz.value;
-  var allValid = true;
-  var validGroups = true;
-  var decPoints = 0;
-  var allNum = "";
-  for (i = 0;  i < checkStr.length;  i++)
-  {
-    ch = checkStr.charAt(i);
-    for (j = 0;  j < checkOK.length;  j++)
-      if (ch == checkOK.charAt(j))
-        break;
-    if (j == checkOK.length)
-    {
-      allValid = false;
-      break;
-    }
-    if (ch == ".")
-    {
-      allNum += ".";
-      decPoints++;
-    }
-    else if (ch == "," && decPoints != 0)
-    {
-      validGroups = false;
-      break;
-    }
-    else if (ch != ",")
-      allNum += ch;
-  }
-  if (!allValid)
-  {
-    alert("Please enter only digit characters in the \"Lütfen hızı seçiniz\" field.");
-    theForm.hiz.focus();
-    return (false);
-  }
-
-  if (decPoints > 1 || !validGroups)
-  {
-    alert("Please enter a valid number in the \"hiz\" field.");
-    theForm.hiz.focus();
-    return (false);
-  }
-
-  var chkVal = allNum;
-  var prsVal = parseFloat(allNum);
-  if (chkVal != "" && !(prsVal >= "0"))
-  {
-    alert("Please enter a value greater than or equal to \"0\" in the \"Lütfen hızı seçiniz\" field.");
-    theForm.hiz.focus();
-    return (false);
-  }
-
-  if (theForm.seyir.value == "")
-  {
-    alert("Please enter a value for the \"Lütfen maxsimum seyir mesafesini seçiniz\" field.");
-    theForm.seyir.focus();
-    return (false);
-  }
-
-  if (theForm.seyir.value.length < 1)
-  {
-    alert("Please enter at least 1 characters in the \"Lütfen maxsimum seyir mesafesini seçiniz\" field.");
-    theForm.seyir.focus();
-    return (false);
-  }
-
-  var checkOK = "0123456789-,";
-  var checkStr = theForm.seyir.value;
-  var allValid = true;
-  var validGroups = true;
-  var decPoints = 0;
-  var allNum = "";
-  for (i = 0;  i < checkStr.length;  i++)
-  {
-    ch = checkStr.charAt(i);
-    for (j = 0;  j < checkOK.length;  j++)
-      if (ch == checkOK.charAt(j))
-        break;
-    if (j == checkOK.length)
-    {
-      allValid = false;
-      break;
-    }
-    if (ch != ",")
-      allNum += ch;
-  }
-  if (!allValid)
-  {
-    alert("Please enter only digit characters in the \"Lütfen maxsimum seyir mesafesini seçiniz\" field.");
-    theForm.seyir.focus();
-    return (false);
-  }
-
-  var chkVal = allNum;
-  var prsVal = parseInt(allNum);
-  if (chkVal != "" && !(prsVal >= "0"))
-  {
-    alert("Please enter a value greater than or equal to \"0\" in the \"Lütfen maxsimum seyir mesafesini seçiniz\" field.");
-    theForm.seyir.focus();
-    return (false);
-  }
-
-  var radioSelected = false;
-  for (i = 0;  i < theForm.makina_type.length;  i++)
-  {
-    if (theForm.makina_type[i].checked)
-        radioSelected = true;
-  }
-  if (!radioSelected)
-  {
-    alert("Please select one of the \"Lütfen makina tipini seçiniz\" options.");
-    return (false);
-  }
-
-  if (theForm.not.value.length > 111)
-  {
-    alert("Please enter at most 111 characters in the \"İletmek istedğiniz notu giriniz\" field.");
-    theForm.not.focus();
-    return (false);
-  }
-
-  var checkOK = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyzƒŠŒšœŸÀÁÂÃÄÅÆÇÈÉÊËÌÍÎÏĞÑÒÓÔÕÖØÙÚÛÜİŞßàáâãäåæçèéêëìíîïğñòóôõöøùúûüışÿ123 4567890.,:?-_ \t\r\n\f";
-  var checkStr = theForm.not.value;
-  var allValid = true;
-  var validGroups = true;
-  for (i = 0;  i < checkStr.length;  i++)
-  {
-    ch = checkStr.charAt(i);
-    for (j = 0;  j < checkOK.length;  j++)
-      if (ch == checkOK.charAt(j))
-        break;
-    if (j == checkOK.length)
-    {
-      allValid = false;
-      break;
-    }
-  }
-  if (!allValid)
-  {
-    alert("Please enter only letter, whitespace and \"123 4567890.,:?-_\" characters in the \"İletmek istedğiniz notu giriniz\" field.");
-    theForm.not.focus();
-    return (false);
-  }
-  return (true);
-}
-//--></script><!--webbot BOT="GeneratedScript" endspan --><form action="hakongonder.asp" method="POST" name="FrontPage_Form1" onsubmit="return FrontPage_Form1_Validator(this)" language="JavaScript" >
-<p align="center">
-<em>
-Sipariş<!--webbot bot="Validation" s-display-name="Lütfen sipariş veya teklif seçimini yapınız" b-value-required="TRUE" --><input type="radio" name="sip_tek" value="Sipariş">&nbsp;&nbsp;&nbsp; 
-Teklif<input type="radio" name="sip_tek" value="Teklif"></em> </p>
-<p align="center">
-<font color="#FF0000">&quot;Lütfen formu doldururken türkçe karakter(ıüÜöÖşŞğĞ) 
-kullanmayınız! &quot;</font></p>
-<TABLE width="463">
-<TR>
-<TD ALIGN="right" width="196">
-<EM>Adı</EM></TD>
-<TD width="257" colspan="2">
-<!--webbot bot="Validation" s-display-name="Lütfe Adınızı ve soyadınızı giriniz" s-data-type="String" b-allow-letters="TRUE" b-allow-whitespace="TRUE" s-allow-other-chars=".,;:-_" b-value-required="TRUE" i-minimum-length="5" i-maximum-length="30" --><INPUT NAME="Kisi_bilgileri_TamAdi" class="textboxes" id="Kisi_bilgileri_TamAdi" SIZE=35 maxlength="30">
-</TD>
-</TR>
-<TR>
-<TD ALIGN="right" width="196">
-<EM>Unvan</EM></TD>
-<TD width="257" colspan="2">
-<!--webbot bot="Validation" s-data-type="String" b-allow-letters="TRUE" b-allow-whitespace="TRUE" s-allow-other-chars=".,;:-_" --><input type="text" name="Kisi_bilgileri_Unvan" size="35">
-</TD>
-</TR>
-<TR>
-<TD ALIGN="right" width="196">
-<EM>Kuruluş</EM></TD>
-<TD width="257" colspan="2">
-<INPUT NAME="Kisi_bilgileri_Kurulus" class="textboxes" id="Kisi_bilgileri_Kurulus" SIZE=35>
-</TD>
-</TR>
-<TR>
-<TD ALIGN="right" width="196">
-<EM>Açık Adres</EM></TD>
-<TD width="257" colspan="2">
-<INPUT TYPE=TEXT NAME="Kisi_bilgileri_AcikAdres" class="textboxes" id="Kisi_bilgileri_AcikAdres" SIZE=35>
-</TD>
-</TR>
-<TR>
-<TD ALIGN="right" width="196">
-<EM>Adres (devamı)</EM></TD>
-<TD width="257" colspan="2">
-<INPUT NAME="Kisi_bilgileri_Adres2" class="textboxes" id="Kisi_bilgileri_AcikAdres2" SIZE=35>
-</TD>
-</TR>
-<TR>
-<TD ALIGN="right" width="196">
-<EM>Şehir</EM></TD>
-<TD width="257" colspan="2">
-<!--webbot bot="Validation" s-display-name="Lütfen Bulunduğunuz il adını giriniz." s-data-type="String" b-allow-letters="TRUE" b-allow-whitespace="TRUE" s-allow-other-chars=".,;:-_" b-value-required="TRUE" i-minimum-length="3" i-maximum-length="25" --><INPUT NAME="Kisi_bilgileri_Sehir" class="textboxes" id="Kisi_bilgileri_Sehir" SIZE=35 maxlength="25">
-</TD>
-</TR>
-<TR>
-<TD ALIGN="right" width="196">
-<EM>Vergi Dairesi</EM></TD>
-<TD width="257" colspan="2">
-<!--webbot bot="Validation" s-display-name="Lütfen vergi dairesini giriniz." s-data-type="String" b-allow-letters="TRUE" b-allow-whitespace="TRUE" s-allow-other-chars=".,;:-_" --><INPUT NAME="Kisi_bilgileri_Vergidairesi" class="textboxes" id="Kisi_bilgileri_Vergidairesi" SIZE=25>
-</TD>
-</TR>
-<TR>
-<TD ALIGN="right" width="196">
-<EM>Vergi no</EM></TD>
-<TD width="257" colspan="2">
-<!--webbot bot="Validation" s-display-name="Lütfen vergi numaranızı giriniz" s-data-type="Integer" s-number-separators="x" i-maximum-length="12" --><INPUT NAME="Kisi_bilgileri_Vergino" class="textboxes" id="Kisi_bilgileri_Vergino" SIZE=10 MAXLENGTH=12>
-</TD>
-</TR>
-<TR>
-<TD ALIGN="right" width="196">
-<EM>İş Telefonu</EM></TD>
-<TD width="257" colspan="2">
-<!--webbot bot="Validation" s-display-name="Lütfen telefon numaranızı giriniz " s-data-type="Integer" s-number-separators="x" b-value-required="TRUE" i-minimum-length="7" i-maximum-length="25" --><INPUT NAME="Kisi_bilgileri_IsTelefonu" class="textboxes" id="Kisi_bilgileri_IsTelefonu" SIZE=25 MAXLENGTH=25>
-</TD>
-</TR>
-<TR>
-<TD ALIGN="right" width="196">
-<EM>Faks</EM></TD>
-<TD width="257" colspan="2">
-<!--webbot bot="Validation" s-display-name="Lütfen fax numaranızı giriniz" s-data-type="Integer" s-number-separators="x" i-maximum-length="25" --><INPUT NAME="Kisi_bilgileri_Faks" class="textboxes" id="Kisi_bilgileri_Faks" SIZE=25 MAXLENGTH=25>
-</TD>
-</TR>
-<TR>
-<TD ALIGN="right" width="196">
-<EM>E-posta</EM></TD>
-<TD width="257" colspan="2">
-<!--webbot bot="Validation" s-display-name="Lütfen Email adresinizi doğru giriniz" s-data-type="String" b-allow-letters="TRUE" b-allow-digits="TRUE" b-allow-whitespace="TRUE" s-allow-other-chars="0123456789_@." b-value-required="TRUE" i-minimum-length="3" i-maximum-length="40" --><INPUT NAME="Kisi_bilgileri_Eposta" class="textboxes" id="Kisi_bilgileri_Eposta" SIZE=25 maxlength="40">
-</TD>
-</TR>
-<tr>
-<TD ALIGN="right" width="196">
-<em>Sipariş veya Teklif Referansı</em></TD>
-<TD width="257" colspan="2">
-<INPUT TYPE=TEXT NAME="Referans" class="textboxes" id="Referans" SIZE=25 MAXLENGTH=25>
-</TD>
-</tr>
-<TR>
-<TD ALIGN="right" width="196">
-<em>Ödeme şekli</em></TD>
-<TD width="129">
-<!--webbot bot="Validation" s-display-name="Lütfen ödeme şekli seçiniz" b-value-required="TRUE" --><input type="radio" name="odeme_sekli" value="Peşin">Peşin</TD>
-<TD width="128">
-<input type="radio" name="odeme_sekli" value="Vadeli">Vadeli</TD>
-</TR>
-<TR>
-<TD ALIGN="right" width="196">
-<em>Anlaşmalı Olduğunuz Kargo Şirketi</em></TD>
-<TD width="257" colspan="2">
-<!--webbot bot="Validation" s-display-name="Lütfen Kargo şirketini seçiniz" b-disallow-first-item="TRUE" --><select size="1" name="Kargo">
-<option selected>Lütfen Kargo firmanızı seçiniz</option>
-<option>Farketmez</option>
-<option>Aras Kargo</option>
-<option>DHL Worldwide Express</option>
-<option>Express Kargo</option>
-<option>Fedex</option>
-<option>Ihlas Kargo</option>
-<option>Inter Kargo</option>
-<option>KLM Kargo</option>
-<option>Mng Kargo</option>
-<option>THY Kargo</option>
-<option>TNT</option>
-<option>UPS</option>
-<option>Yurtiçi Kargo</option>
-</select></TD>
-</TR>
-</TABLE>
-<LI>
-<P>
-Lütfen, ürün bilgisini girin:</P>
-<TABLE bordercolor="#C0C0C0" cellspacing="1" border="7" style="border-collapse: collapse">
-<TR>
-<TD ALIGN="right">
-<em>Ürün adı</em></TD>
-<TD ALIGN="left">
-<SELECT NAME="Urun_UrunAdi">
-<option value="KTS25ST_PI">KTS25ST_PI</option>
-<option value="KTS25ST_PD">KTS25ST_PD</option>
-<option value="KTS25RO_PI">KTS25RO_PI</option>
-<option value="KTS25RO_PD">KTS25RO_PD</option>
-<option value="KTS25TM_PI">KTS25TM_PI</option>
-<option value="KTS25TO_PD">KTS25T0_PD</option>
-<option value="KTS25MO_PD">KTS25MO_PD</option>
-<option value="KTS35ST_PI">KTS35ST_PI</option>
-<option value="KTS35ST_PD">KTS35ST_PD</option>
-<option value="KTS35RO_PI">KTS35RO_PI</option>
-<option value="KTS35RO_PD">KTS35RO_PD</option>
-<option value="KTS35TM_PI">KTS35TM_PI</option>
-<option value="KTS35TO_PD">KTS35T0_PD</option>
-<option value="KTS35MO_PD">KTS35MO_PD</option>
-<option value="KTS50ST_PI">KTS50ST_PI</option>
-<option value="KTS50ST_PD">KTS50ST_PD</option>
-<option value="KTS50RO_PI">KTS50RO_PI</option>
-<option value="KTS50RO_PD">KTS50RO_PD</option>
-<option value="KTS50TO_PD">KTS50T0_PD</option>
-<option value="KTS50MO_PD">KTS50MO_PD</option>
-<option value="KTS50TM_PD">KTS50TM_PD</option>
-<option selected value="Ürün tipini biliyorsanız seçiniz">Ürün tipini beliyorsanız seçiniz
-</option>
-</SELECT></TD>
-<TD>
-<font face="Verdana">MİKTAR</font></TD>
-<TD>
-<p align="center">
-<!--webbot bot="Validation" s-display-name="Lütfen miktarı seçiniz" s-data-type="Integer" s-number-separators="," b-value-required="TRUE" i-minimum-length="1" s-validation-constraint="Greater than or equal to" s-validation-value="0" --><input type="text" name="adet" size="7"></TD>
-</TR>
-<TR>
-<TD ALIGN="right">
-<em>motor gücü</em></TD>
-<TD ALIGN="left">
-<!--webbot bot="Validation" s-display-name="Lütfen motor gücünü seçiniz" b-value-required="TRUE" b-disallow-first-item="TRUE" --><SELECT NAME="motor_gucu">
-<OPTION SELECTED>Lütfen seçim yapınız
-<OPTION>3
-<OPTION>4
-<OPTION>5
-<OPTION>6
-<OPTION>7
-<OPTION>8
-<OPTION>9
-<OPTION>10
-<OPTION>11
-<OPTION>12
-<OPTION>13
-<OPTION>14
-<OPTION>15
-<OPTION>16
-<OPTION>17
-<OPTION>18
-<OPTION>19
-<OPTION>20
-<OPTION>30
-<OPTION>40
-</SELECT></TD>
-<TD>
-<!--webbot bot="Validation" s-display-name="Lütfen motor gücü tipini seçiniz" b-value-required="TRUE" --><input type="radio" name="motor_guctype" value="KW"><font face="Verdana">KW</font></TD>
-<TD>
-<input type="radio" name="motor_guctype" value="HP"><font face="Verdana">HP</font></TD>
-</TR>
-<TR>
-<TD ALIGN="right">
-<em>Fren bobin gerilimi</em></TD>
-<TD ALIGN="left">
-<!--webbot bot="Validation" s-display-name="Lütfen fren gerilimini seçiniz" b-value-required="TRUE" b-disallow-first-item="TRUE" --><SELECT NAME="fren_gerilimi">
-<option selected>lütfen seçiniz</option>
-<OPTION>48 V DC
-<OPTION>60 V DC
-<OPTION>110 V DC
-<OPTION>190 V DC
-</SELECT></TD>
-<TD>
-&nbsp;</TD>
-<TD>
-&nbsp;</TD>
-</TR>
-<TR>
-<TD ALIGN="right"><em>
-Emniyet devresi gerilimi</em></TD>
-<TD ALIGN="left">
-<!--webbot bot="Validation" s-display-name="Lütfen emniyet gerilimi seçimini yapınız" b-value-required="TRUE" b-disallow-first-item="TRUE" --><SELECT NAME="emniyet_gerilimi">
-<option selected>Lütfen seçim yapınız</option>
-<OPTION>24 V
-<OPTION>48 V
-<OPTION>110 V
-<OPTION>220 V
-</SELECT></TD>
-<TD>
-<INPUT TYPE=RADIO NAME="emg_type" VALUE="DC">
- DC </TD>
-<TD>
-<!--webbot bot="Validation" s-display-name="gerilim tipi seçimi yapınız" b-value-required="TRUE" --><INPUT TYPE=RADIO NAME="emg_type" VALUE="AC">
- AC </TD>
-</TR>
-<TR>
-<TD ALIGN="right"><em>Sinyalizasyon devresi&nbsp; </em></TD>
-<TD ALIGN="left">
-<!--webbot bot="Validation" s-display-name="Lütfen sinyalizasyon gerilimi seçimini yapınız" b-value-required="TRUE" b-disallow-first-item="TRUE" --><SELECT NAME="sinyal_gerilimi">
-<option selected>Lütfen seçim yapınız</option>
-<OPTION>24 V
-<OPTION>48 V
-<OPTION>110 V
-<OPTION>220 V
-</SELECT></TD>
-<TD>
-<INPUT TYPE=RADIO NAME="sin_type" VALUE="DC">
- DC </TD>
-<TD>
-<INPUT TYPE=RADIO NAME="sin_type" VALUE="AC">
- AC </TD>
-</TR>
-<tr>
-<TD ALIGN="right"><em>Motor Tahrik Şekli</em></TD>
-<TD ALIGN="left">
-<!--webbot bot="Validation" s-display-name="Lütfen tahrik şekli seçimini yapınız" b-value-required="TRUE" b-disallow-first-item="TRUE" --><SELECT NAME="tahrik_sekli">
-<option selected>Lütfen seçim yapınız</option>
-<OPTION>TEK HIZ
-<OPTION>ÇİFT HIZ
-<OPTION>VVVF
-</SELECT></TD>
-<TD>
-HIZ</TD>
-<TD>
-<!--webbot bot="Validation" s-display-name="Lütfen hızı seçiniz" s-data-type="Number" s-number-separators=",." b-value-required="TRUE" i-minimum-length="1" s-validation-constraint="Greater than or equal to" s-validation-value="0" --><input type="text" name="hiz" size="4">m/s</TD>
-</tr>
-<tr>
-<TD ALIGN="left" colspan="2">
-<p align="right"><em>İki Kat Arası Maksimum Seyir Mesafesi</em></TD>
-<TD>
-<!--webbot bot="Validation" s-display-name="Lütfen maxsimum seyir mesafesini seçiniz" s-data-type="Integer" s-number-separators="," b-value-required="TRUE" i-minimum-length="1" s-validation-constraint="Greater than or equal to" s-validation-value="0" --><input type="text" name="seyir" size="7"></TD>
-<TD>
-metre</TD>
-</tr>
-<tr>
-<TD ALIGN="right"><em>Makina Tipi</em></TD>
-<TD ALIGN="left">
-<!--webbot bot="Validation" s-display-name="Lütfen makina tipini seçiniz" b-value-required="TRUE" --><INPUT TYPE=RADIO NAME="makina_type" VALUE="Dişlili">Dişlili</TD>
-<TD ALIGN="left" colspan="2">
-<INPUT TYPE=RADIO NAME="makina_type" VALUE="Dişlisiz">Dişlisiz</TD>
-</tr>
-<TR>
-<TD ALIGN="right"><em>
-Otomatik kapı Var mı?</em></TD>
-<TD ALIGN="left">
-&nbsp;</TD>
-<TD>
-<INPUT TYPE=RADIO NAME="oto_door" VALUE="Var">
- Var </TD>
-<TD>
-<INPUT TYPE=RADIO NAME="oto_door" VALUE="Yok">
- Yok </TD>
-</TR>
-<TR>
-<TD ALIGN="right"><em>Otomatik Kapı Markası</em></TD>
-<TD ALIGN="left">
-<SELECT NAME="oto_trade">
-<OPTION SELECTED>Lütfen seçim yapınız
-<OPTION>SELCOM
-<OPTION>FERMATOR
-<OPTION>KLEFER
-<OPTION>SEMATIC
-<OPTION>MACPUARSA
-<OPTION>MARATON
-<OPTION>MERİH
-<option>OSMA
-<OPTION>ATERYA
-<OPTION>ADOOR
-<OPTION>DİĞER
-</SELECT></TD>
-<TD></TD>
-<TD></TD>
-</TR>
-<TR>
-<TD ALIGN="right"><em>Otomatik Kapı Tipi</em></TD>
-<TD ALIGN="left">
-<SELECT NAME="oto_type">
-<option selected>lütfen seçim yapınız</option>
-<OPTION>LIMIT SWITCH
-<OPTION>ENCODERLI
-<OPTION>VVVF ENCODERLI
-</SELECT></TD>
-<TD></TD>
-<TD></TD>
-</TR>
-<tr>
-<TD ALIGN="right"><em>O.K.Çalışma  Gerilimi</em></TD>
-<TD ALIGN="left">
-<SELECT NAME="okcgerilimi">
-<option selected>lütfen seçim yapınız</option>
-<OPTION>12 V
-<OPTION>24 V
-<OPTION>48 V
-<OPTION>110 V
-<OPTION>220 V
-<OPTION>380 V
-</SELECT></TD>
-<TD>
-<INPUT TYPE=RADIO NAME="okcg_type" VALUE="DC">
- DC</TD>
-<TD>
-<INPUT TYPE=RADIO NAME="okcg_type" VALUE="AC">
- AC </TD>
-</tr>
-<TR>
-<TD ALIGN="right"><em>NOT</em></TD>
-<TD ALIGN="center" colspan="3">
-<!--webbot bot="Validation" s-display-name="İletmek istedğiniz notu giriniz" s-data-type="String" b-allow-letters="TRUE" b-allow-whitespace="TRUE" s-allow-other-chars="123 4567890.,:?-_" i-maximum-length="111" --><textarea rows="3" name="not" cols="37"></textarea></TD>
-</TR>
-</TABLE>
-</UL>
-<INPUT TYPE=SUBMIT VALUE="Formu Gönder">
-<INPUT TYPE=RESET VALUE="Formu Sıfırla">
-</FORM>
-<HR>
-<H5>
-Hakon webmaster<br>Telif Hakkı © 1998 HAKON. Tüm hakları saklıdır. </H5>
-</BODY>
-</HTML>
+        <div class="buton-alani">
+            <input type="submit" value="Formu Gönder" class="form-btn">
+            <input type="reset" value="Formu Temizle" class="form-btn">
+        </div>
+    </form>
+</div>
+</body>
+</html>
