@@ -10,21 +10,21 @@
 <H1 align="center">KTS </H1>
 <H1 align="center">Order or offer form</H1>
 <hr>
-<!--webbot BOT="GeneratedScript" PREVIEW=" " startspan --><script Language="JavaScript" Type="text/javascript"><!--
-function FrontPage_Form1_Validator(theForm)
-{
-
-  var radioSelected = false;
-  for (i = 0;  i < theForm.sip_tek.length;  i++)
-  {
-    if (theForm.sip_tek[i].checked)
-        radioSelected = true;
-  }
-  if (!radioSelected)
-  {
-    alert("Please select one of the \"Please choose \"order or offer\"\" options.");
-    return (false);
-  }
+<script type="text/javascript">
+function FrontPage_Form1_Validator(theForm) {
+    var radioSelected = false;
+    for (var i = 0; i < theForm.sip_tek.length; i++) {
+        if (theForm.sip_tek[i].checked) {
+            radioSelected = true;
+        }
+    }
+    if (!radioSelected) {
+        alert("Lütfen 'Sipariş' veya 'Teklif' seçeneklerinden birini seçiniz.");
+        return false;
+    }
+    return true;
+}
+</script>
 
   if (theForm.Kisi_bilgileri_TamAdi.value == "")
   {
